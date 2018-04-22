@@ -39,7 +39,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <?php include 'connection.php' ?>
+        <?php
+            require_once 'classes/myClass.php';
+        ?>
         <!--header strat here-->
             <?php include_once 'pages/header.php' ?>
         <!--header end here-->

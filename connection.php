@@ -1,4 +1,4 @@
 <?php
-	$conn=mysql_connect("localhost","root","") or die ("Không thể kết nối vào MySQL");
-	mysql_select_db("trangsuc") or die ("Không thể kết nối vào Database");
+	$conn=mysqli_connect("localhost","root","") or die ("Không thể kết nối vào MySQL");
+	mysqli_select_db($conn, "trangsuc") or die ("Không thể kết nối vào Database");
 ?>
