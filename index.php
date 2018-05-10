@@ -92,8 +92,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--footer end here-->
 
     <!-- các xử lý chung -->
-    <!-- đặt hàng -->
         <?php
+            //xử lý đặt hàng
             if(isset($_POST['btnDathang'])){
                 $masp = $_POST['txtMasp'];
                 $soluong = 1;
@@ -103,8 +103,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $giohangClass = new Giohang();
                 $giohangClass->dathang($masp, $soluong);
             }
+            
+            //xử lý nút cancel
+            if(isset($_POST['btnCancelBill'])){
+                $madh = $_POST['txtMadh'];
+                $giohangClass->capnhatTrangthaiDh($madh, "cancel");
+            }
         ?>
-    <!-- kết thúc đặt hàng -->
     <!--kết thúc các xử lý chung-->
     </body>
 </html>

@@ -23,7 +23,7 @@
         <td><?php echo $rowdh['dh_dt']; ?></td>
         <td><?php echo $rowdh['dh_noigiao']; ?></td>
         <td>
-            <form name="frmCancelBill" method="POST">
+            <form name="frmCancelBill" method="POST" action="?page=thanhvien&action=donhang">
                 <a class="btn btn-primary"  href="?page=thanhvien&action=chitietdonhang&madh=<?php echo $rowdh['dh_ma']; ?>">Chi tiết</a>
                 <?php
                     $trangthaidh =$giohangClass->getTrangthaiByMaDh($rowdh['dh_ma']);
@@ -37,11 +37,5 @@
     <?php } ?>
 </table>
 
-<?php
-    //xử lý nút cancel
-    if(isset($_POST['btnCancelBill'])){
-        $madh = $_POST['txtMadh'];
-        $giohangClass->capnhatTrangthaiDh($madh, "cancel");
-    }
-?>
+
 
