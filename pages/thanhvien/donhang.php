@@ -22,8 +22,26 @@
         <td><?php echo $rowdh['dh_tennguoinhan']; ?></td>
         <td><?php echo $rowdh['dh_dt']; ?></td>
         <td><?php echo $rowdh['dh_noigiao']; ?></td>
-        <td></td>
+        <td>
+            <form name="frmCancelBill" method="POST">
+                <a class="btn btn-primary"  href="?page=thanhvien&action=chitietdonhang&madh=<?php echo $rowdh['dh_ma']; ?>">Chi tiết</a>
+                <?php
+                    $trangthaidh =$giohangClass->getTrangthaiByMaDh($rowdh['dh_ma']);
+                    if($trangthaidh=="waiting"){?>
+                    <input type="hidden" id="txtMadh" name="txtMadh" value="<?php echo $rowdh['dh_ma']; ?>"/>
+                    <input type="submit" name="btnCancelBill" id="btnCancelBill" class="btn btn-danger" value="Cancel"/>
+                <?php } ?>
+            </form>
+        </td>
     </tr>
     <?php } ?>
 </table>
+
+<?php
+    //xử lý nút cancel
+    if(isset($_POST['btnCancelBill'])){
+        $madh = $_POST['txtMadh'];
+        $giohangClass->capnhatTrangthaiDh($madh, "cancel");
+    }
+?>
 

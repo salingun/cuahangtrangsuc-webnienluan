@@ -137,4 +137,18 @@ class Giohang {
         return $result;
     }
     
+    function getTrangthaiByMaDh($dh_ma){
+        $con = new MyConnection();
+        $sqlquery = "SELECT dh_trangthai FROM donhang WHERE dh_ma=".$dh_ma;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        $row = mysqli_fetch_array($result);
+        return $row['dh_trangthai'];
+    }
+    
+    function capnhatTrangthaiDh($dh_ma,$trangthaimoi){
+        $con = new MyConnection();
+        $sqlquery = "UPDATE donhang SET dh_trangthai='".$trangthaimoi."' WHERE dh_ma=".$dh_ma;
+        mysqli_query($con->getMyConnection(), $sqlquery);
+//        echo "<script>alert('Sản phẩm đã thay đổi trạng thái')</script>";
+    }
 }
