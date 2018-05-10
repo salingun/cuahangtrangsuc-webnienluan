@@ -20,4 +20,6 @@ class Loaisanpham {
         $result = mysqli_query($con->getMyConnection(), $sqlquery);
         return $result;
     }
+    
+    
 }

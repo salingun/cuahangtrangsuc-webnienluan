@@ -15,7 +15,8 @@
             </ul>
             <h6>Size Charts</h6>
             <ul class="bann-btns">
-                <li><select class="bann-size">
+                <li>
+                    <select class="bann-size">
                         <option value="select your location">Size</option>
                         <option value="saab">Small</option>
                         <option value="fiat">Medium</option>

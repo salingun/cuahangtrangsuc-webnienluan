@@ -10,3 +10,5 @@
     include_once 'class.sanpham.php';
     include_once 'class.loaisanpham.php';
     include_once 'class.nhacungcap.php';
+    include_once 'class.thanhvien.php';
+    include_once 'class.giohang.php';

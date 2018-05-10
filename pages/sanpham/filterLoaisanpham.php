@@ -1,12 +1,11 @@
 <?php require_once '../../classes/myClass.php';?>
 <?php
-if ($_POST['brandss']) {
-
-//unserialize to jquery serialize variable value
+    if ($_POST['brandss']) {
+    //unserialize to jquery serialize variable value
     $brandis = array();
 
     parse_str($_POST['brandss'], $brandis); //changing string into array 
-//split 1st array elements
+    //split 1st array elements
     foreach ($brandis as $ids) {
         $ids;
     }
@@ -21,11 +20,16 @@ if ($_POST['brandss']) {
                     <img src="<?php $spHinh = $spClass->getHinhSPByID($row['sp_ma']); echo mysqli_fetch_array($spHinh)['hsp_tentaptin']; ?>" width="245px" />
                 </div>
                 <div class="home-product-bottom">
-                    <h3><a href="single.html"><?php echo $tensp = (strlen($row['sp_ten']) <= 20) ? $row['sp_ten'] : substr($row['sp_ten'], 0, 17) . "..."; ?></a></h3>
-                    <p>Explore Now</p>						
+                    <h3><a href="?page=sanpham&action=chitietsanpham&masp=<?php echo $row['sp_ma'];?>"><?php echo $tensp = (strlen($row['sp_ten']) <= 20) ? $row['sp_ten'] : substr($row['sp_ten'], 0, 17) . "..."; ?></a></h3>
+                    <p><?php echo $row['sp_gia']; ?></p>						
                 </div>
                 <div class="srch">
-                    <span><?php echo $row['sp_gia'] ?></span>
+                    <form name="frmDathang" method="POST">
+                        <span>
+                            <input type="hidden" id="txtMasp" name="txtMasp" value="<?php echo $row['sp_ma']; ?>"/>
+                            <input type="submit" name="btnDathang" id="btnDathang" class="buttonlink" value="Đặt hàng"/>
+                        </span>
+                    </form>
                 </div>
             </div>
         </div>

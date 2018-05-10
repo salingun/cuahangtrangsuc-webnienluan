@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
@@ -37,6 +37,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- //end-smoth-scrolling -->
         <script src="js/simpleCart.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <!--flex slider-->
+        <script defer src="js/jquery.flexslider.js"></script>
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+        <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+          $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+          });
+        });
+        </script>
+        <!--flex slider-->
+        <script src="js/imagezoom.js"></script>
+        <link href='css/mycss.css' rel='stylesheet' type='text/css' media="all">
     </head>
     <body>
         <?php
@@ -76,5 +91,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <?php include_once 'pages/footer.php' ?>
         <!--footer end here-->
 
+    <!-- các xử lý chung -->
+    <!-- đặt hàng -->
+        <?php
+            if(isset($_POST['btnDathang'])){
+                $masp = $_POST['txtMasp'];
+                $soluong = 1;
+                if(isset($_POST['txtSoluong'])){
+                    $soluong = $_POST['txtSoluong'];
+                }
+                $giohangClass = new Giohang();
+                $giohangClass->dathang($masp, $soluong);
+            }
+        ?>
+    <!-- kết thúc đặt hàng -->
+    <!--kết thúc các xử lý chung-->
     </body>
 </html>
