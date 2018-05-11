@@ -70,7 +70,7 @@
         <form name="frmCancelBill" method="POST"  action="?page=thanhvien&action=chitietdonhang&madh=<?php echo $dh['dh_ma']; ?>">
             <?php
                 $trangthaidh =$giohangClass->getTrangthaiByMaDh($dh['dh_ma']);
-                if($trangthaidh=="waiting"){?>
+                if($trangthaidh=="xuly"){?>
                 <input type="hidden" id="txtMadh" name="txtMadh" value="<?php echo $dh['dh_ma']; ?>"/>
                 <input type="submit" name="btnCancelBill" id="btnCancelBill" class="btn btn-danger" value="Cancel"/>
             <?php } ?>

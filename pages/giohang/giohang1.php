@@ -3,7 +3,7 @@
     <div class="container">
         <div class="ckeckout-top">
             <div class=" cart-items heading">
-                <h1>My Shopping Bag</h1>
+                <h1>Giỏ hàng</h1>
                 <form method="POST" name="frmGiohang" id="frmGiohang">
                     <div class="in-check" >
                         <ul class="unit">

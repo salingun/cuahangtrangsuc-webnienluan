@@ -18,6 +18,7 @@
       <th></th>
     </tr>
     <?php			
+                        $ghClass = new Giohang();
 			$sq="Select * From donhang";
 			$result= mysqli_query($conn, $sq);
 			while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
@@ -30,7 +31,7 @@
 		<td><?php echo $row['dh_ngaylap'];?></td>
 		<td><?php echo $row['dh_ngaygiao'];?></td>
 		<td><?php echo $row['dh_noigiao'];?></td>
-		<td><?php echo number_format($row['dh_tongtien'],0,',','.');?></td>
+                <td><?php echo number_format($ghClass->tongtiendh($row['dh_ma']),0,',','.');?></td>
 		<td><?php if($row['dh_trangthai']=='xuly'){echo "Đang xử lý";}elseif($row['dh_trangthai']=='giao'){echo "Đang giao hàng";}else{echo "Đã xong";};?></td>
 	    <td><a href="?trang=donhang&link=edit&ma=<?php echo $row['dh_ma'];?>"><span style="color: blue;" class="glyphicon glyphicon-pencil"></span></a></td>
 	    <td><a href="?trang=donhang&link=edit&ma=<?php echo $row['dh_ma'];?>" onclick="return sure();"><span style="color: red;" class="glyphicon glyphicon-remove"></span></a></td>

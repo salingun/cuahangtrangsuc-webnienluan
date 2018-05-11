@@ -9,7 +9,7 @@ if (isset($_POST['subdathang'])) {
     $noigiao = $_POST['txtDiachi'];
     $dt = $_POST['txtSodt'];
     $ghichu = $_POST['txtGhichu'];
-    $trangthai = "waiting";
+    $trangthai = "xuly";
     $httt_ma = $_POST['cbHttt'];
     $tendangnhap = $_SESSION['User'];
 //them vao bang don hang

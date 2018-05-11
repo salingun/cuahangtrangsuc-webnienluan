@@ -9,12 +9,11 @@ if(isset($_GET['ma']))
 	{
 		$tv_tendangnhap = $row1['tv_tendangnhap'];
 		
-		$dh_dt = $row1['Dt_dh'];
-		$dh_noigiao = $row1['Dc_dh'];
-		$dh_ngaylap = $row1['Ngay_dh'];
-		$dh_ngaygiao = $row1['Ngay_gh'];
-		$dh_trangthai = $row1['Tinhtrang_dh'];
-		$dh_tongtien = $row1['Tongtien_dh'];
+		$dh_dt = $row1['dh_dt'];
+		$dh_noigiao = $row1['dh_noigiao'];
+		$dh_ngaylap = $row1['dh_ngaylap'];
+		$dh_ngaygiao = $row1['dh_ngaygiao'];
+		$dh_trangthai = $row1['dh_trangthai'];
 ?>
 <form class="form-horizontal" role="form" method="post">
 <div class="panel panel-success">

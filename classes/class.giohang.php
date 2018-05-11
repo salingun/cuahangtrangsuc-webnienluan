@@ -38,6 +38,18 @@ class Giohang {
         return $soluong*$dongia;
     }
     
+    function  tongtiendh($madh){
+        $con = new MyConnection();
+        $tongtien = 0;
+        $sqlquery = "SELECT * FROM chitiet_donhang WHERE dh_ma=".$madh;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        while($row=mysqli_fetch_array($result))
+        {
+            $tongtien += $this->thanhtiensp($row['ctdh_soluong'], $row['ctdh_dongia']);
+        }
+        return $tongtien;
+    }
+            
     function capnhatSoluong($soluongcu,$soluongmoi,$soluongkho){
         $soluong = $soluongcu;
         if($soluongmoi!=$soluongcu){

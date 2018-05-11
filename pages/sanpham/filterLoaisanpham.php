@@ -21,7 +21,7 @@
                 </div>
                 <div class="home-product-bottom">
                     <h3><a href="?page=sanpham&action=chitietsanpham&masp=<?php echo $row['sp_ma'];?>"><?php echo $tensp = (strlen($row['sp_ten']) <= 20) ? $row['sp_ten'] : substr($row['sp_ten'], 0, 17) . "..."; ?></a></h3>
-                    <p><?php echo $row['sp_gia']; ?></p>						
+                    <p><?php echo number_format($row['sp_gia'],0,',','.') ; ?>đ</p>						
                 </div>
                 <div class="srch">
                     <form name="frmDathang" method="POST">

@@ -107,7 +107,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             //xử lý nút cancel
             if(isset($_POST['btnCancelBill'])){
                 $madh = $_POST['txtMadh'];
-                $giohangClass->capnhatTrangthaiDh($madh, "cancel");
+                $giohangClass->capnhatTrangthaiDh($madh, "huy");
             }
         ?>
     <!--kết thúc các xử lý chung-->

@@ -21,6 +21,9 @@
 	<?php
 	include_once("../connection.php");
 	?>
+        <?php
+            require_once '../classes/myClass.php';
+        ?>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<?php include('top.php') ?>
