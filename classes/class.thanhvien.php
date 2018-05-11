@@ -16,11 +16,8 @@ require 'myClass.php';
 class Thanhvien {
 //put your code here
     function dangnhap($username, $password){
-        $con = new MyConnection();
-        $sqlquery = "SELECT tv_tendangnhap FROM thanhvien WHERE tv_tendangnhap='$username' AND tv_matkhau='$password'";
-        $result = mysqli_query($con->getMyConnection(), $sqlquery);
-        $count = mysqli_num_rows($result);
-        if($count > 0)
+        $check = $this->checkUserPass($username, $password);
+        if($check==TRUE)
 	{
 		$_SESSION['User']=$username;
 		echo "<script>alert('Đăng nhập thành công!')</script>";
@@ -34,6 +31,22 @@ class Thanhvien {
 //	{
 //		setcookie("User", $_SESSION['Email'], time()+(60*60*24*365));
 //	}
+    }
+    
+    function checkUserPass($username, $password){
+        $con = new MyConnection();
+        $sqlquery = "SELECT tv_tendangnhap FROM thanhvien WHERE tv_tendangnhap='$username' AND tv_matkhau='$password'";
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        $count = mysqli_num_rows($result);
+        if($count > 0)
+	{
+		$check = TRUE;
+	}
+	else
+	{
+		$check = FALSE;
+	}
+        return $check;
     }
     
     function getUsername(){
@@ -56,11 +69,29 @@ class Thanhvien {
         }
         return $code;
     }
-    function getLoggedCode($codechuadn, $codedadn){
+    function getLoggedCode($codechuadn){
+        $code = $codechuadn;
         if(isset($_SESSION['User'])){
-            $code = $codedadn;
-        } else{
-            $code = $codechuadn;
+            $code =  '<div class="btn-group">
+                        <button type="button" class="buttonlink dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span>
+                         '.$_SESSION['User'].'
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="?page=thanhvien&action=donhang">Lịch sử mua hàng</a></li>
+                          <li><a href="?page=thanhvien&action=suathongtin">Sửa thông tin</a></li>
+                          <li><a href="?page=thanhvien&action=dangxuat">Đăng xuất</a></li>
+                        </ul>
+                      </div>';
+        }
+        return $code;
+    }
+    
+    function getLoggedAndUnloggedCode($codechuadn,$codedadangnhap){
+        $code = $codechuadn;
+        if(isset($_SESSION['User'])){
+            $code =  $codedadangnhap;
         }
         return $code;
     }
@@ -70,5 +101,17 @@ class Thanhvien {
         $sqlquery = "SELECT * FROM thanhvien WHERE tv_tendangnhap=".$tv_tendangnhap;
         $result = mysqli_query($con->getMyConnection(), $sqlquery);
         return mysqli_fetch_array($result,MYSQLI_ASSOC);
+    }
+    
+    function capnhatThongtinTv($tendangnhap, $ten, $gioitinh, $diachi, $dienthoai, $email, $sinhnhat, $cmnd){
+        $con = new MyConnection();
+        $sqlquery = "UPDATE thanhvien SET tv_ten='".$ten."', tv_gioitinh='".$gioitinh."',tv_diachi='".$diachi."',tv_dienthoai='".$dienthoai."',tv_email='".$email."',tv_sinhnhat='".$sinhnhat."',tv_cmnd='".$cmnd."' WHERE tv_tendangnhap='$tendangnhap'";
+        mysqli_query($con->getMyConnection(), $sqlquery);
+    }
+    
+    function capnhatPassword($tendangnhap,$passcu,$passmoi){
+        $con = new MyConnection();
+        $sqlquery = "UPDATE thanhvien SET tv_matkhau='".$passmoi."' WHERE tv_tendangnhap='$tendangnhap'";
+        mysqli_query($con->getMyConnection(), $sqlquery);
     }
 }

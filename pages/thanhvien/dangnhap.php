@@ -4,7 +4,7 @@
         $tvClass = new Thanhvien();
         if(isset($_POST['btnDangnhap'])){
             $username = $_POST['txtTendangnhap'];
-            $password = $_POST['txtMatkhau'];
+            $password = md5($_POST['txtMatkhau']);
             $tvClass->dangnhap($username,$password);
         }
     ?>

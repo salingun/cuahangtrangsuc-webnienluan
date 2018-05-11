@@ -149,6 +149,12 @@ class Giohang {
         $con = new MyConnection();
         $sqlquery = "UPDATE donhang SET dh_trangthai='".$trangthaimoi."' WHERE dh_ma=".$dh_ma;
         mysqli_query($con->getMyConnection(), $sqlquery);
-//        echo "<script>alert('Sản phẩm đã thay đổi trạng thái')</script>";
+        if($_GET['action']=='donhang'){
+            $thisurl = "?page=thanhvien&action=donhang";
+        }
+        if($_GET['action']=='chitietdonhang'){
+            $thisurl = "?page=thanhvien&action=chitietdonhang&madh=".$dh_ma;
+        }
+        echo '<meta http-equiv="refresh" content="0;URL='.$thisurl.'">';
     }
 }

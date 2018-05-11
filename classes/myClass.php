@@ -12,3 +12,4 @@
     include_once 'class.nhacungcap.php';
     include_once 'class.thanhvien.php';
     include_once 'class.giohang.php';
+    include_once 'class.gopy.php';

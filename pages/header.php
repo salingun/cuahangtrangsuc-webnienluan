@@ -43,8 +43,8 @@
                                         </div>
                                     </ul>
                                 </li>
-                                <li><a href="contact.php">Liên hệ</a></li>
-                                <li><a href="about.php">Giới thiệu</a></li>
+                                <li><a href="?page=thongtin&action=gopy">Liên hệ</a></li>
+                                <li><a href="?page=thongtin&action=gioithieu">Giới thiệu</a></li>
                             </ul>
                         </div>
                         <!--/.navbar-collapse-->
@@ -72,19 +72,7 @@
                             <?php
                                 $tvClass = new Thanhvien();
                                 $codechuadn = '<a href="?page=thanhvien&action=dangnhap"><i class="hd-dign"></i>Sign in</a>';
-                                $codedadn = '<div class="btn-group">
-                                                    <button type="button" class="buttonlink dropdown-toggle" data-toggle="dropdown">
-                                                    <span class="glyphicon glyphicon-user"></span>
-                                                     '.$_SESSION['User'].'
-                                                      <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                      <li><a href="?page=thanhvien&action=donhang">Lịch sử mua hàng</a></li>
-                                                      <li><a href="?page=thanhvien&action=suathongtin">Sửa thông tin</a></li>
-                                                      <li><a href="?page=thanhvien&action=logout">Đăng xuất</a></li>
-                                                    </ul>
-                                                  </div>';
-                                echo $tvClass->getLoggedCode($codechuadn, $codedadn);
+                                echo $tvClass->getLoggedCode($codechuadn);
                             ?>
                         </h5>
                     </div>              
