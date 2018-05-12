@@ -1,4 +1,8 @@
 <?php
+    $tvClass = new Thanhvien();
+    $tvClass->checkLoggedGoLogin();
+?>
+<?php
 $tvClass = new Thanhvien();
 $tendangnhap = $_SESSION['User'];
 $r = $tvClass->hienthi1Thanhvien("'" . $tendangnhap . "'");

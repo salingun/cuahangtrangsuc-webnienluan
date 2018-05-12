@@ -1,4 +1,8 @@
 <?php
+    $tvClass = new Thanhvien();
+    $tvClass->checkLoggedGoLogin();
+?>
+<?php
     $dh_ma = $_SESSION['dh_ma'];
     $giohangClass = new Giohang();
 ?>

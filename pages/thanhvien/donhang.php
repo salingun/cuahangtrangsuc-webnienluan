@@ -1,3 +1,7 @@
+<?php
+    $tvClass = new Thanhvien();
+    $tvClass->checkLoggedGoLogin();
+?>
 <h3>Lịch sử mua hàng</h3>
 <table class="table table-bordered table-hover">
     <tr>

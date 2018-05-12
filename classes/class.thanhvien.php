@@ -63,6 +63,14 @@ class Thanhvien {
         }
         return $check;
     }
+    
+    function checkLoggedGoLogin(){
+        if(!isset($_SESSION['User'])){
+            echo "<script>alert('Bạn cần đăng nhập!')</script>";
+            echo '<meta http-equiv="REFRESH" content ="0;URL=?page=thanhvien&action=dangnhap">';
+        }
+    }
+    
     function getUsernameORCode($code){
         if(isset($_SESSION['User'])){
             $code = $_SESSION['User'];

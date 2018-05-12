@@ -48,16 +48,21 @@
                             </ul>
                         </div>
                         <!--/.navbar-collapse-->
+                        
                     </nav>
                     <!--/.navbar-->
+                    
                 </div>
             </div>
             <div class="header-right">
                 <div class="search">
                     <div class="search-text">
-                        <input class="serch" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                this.value = 'Search';
-                            }"/>
+                        <form id="frmSearch" name="frmSearch" method="POST">
+                            <input id="searchkey" name="searchkey" class="serch" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Search';
+                                }"/>
+                                <button type="submit" name="btnSearch" id="btnSearch" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-search"></span></button>
+                        </form>
                     </div>
                     <div class="cart box_1">
                         <h5>

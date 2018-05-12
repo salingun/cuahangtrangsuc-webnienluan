@@ -1,4 +1,8 @@
 <?php
+    $tvClass = new Thanhvien();
+    $tvClass->checkLoggedGoLogin();
+?>
+<?php
     $dh_ma = $_GET['madh'];
     $giohangClass = new Giohang();
 ?>

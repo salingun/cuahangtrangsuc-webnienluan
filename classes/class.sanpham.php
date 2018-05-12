@@ -39,10 +39,12 @@ class Sanpham {
         return $sotrang;
     }
     
-    function linkPhantrang($cate,$sotrang){
-        if($cate==null){
-            $linkPhantrang = "?page=sanpham&action=index&sotrang=".$sotrang;
-        } else {
+    function linkPhantrang($searchkey,$cate,$sotrang){
+        $linkPhantrang = "?page=sanpham&action=index&sotrang=".$sotrang;
+        if($searchkey!=null) {
+            $linkPhantrang = "?page=sanpham&action=index&searchkey=".$searchkey."&sotrang=".$sotrang;
+        }
+        if($cate!=null) {
             $linkPhantrang = "?page=sanpham&action=index&cate=".$cate."&sotrang=".$sotrang;
         }
         return $linkPhantrang;

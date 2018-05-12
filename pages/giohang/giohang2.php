@@ -1,4 +1,9 @@
 <?php
+    $tvClass = new Thanhvien();
+    $tvClass->checkLoggedGoLogin();
+?>
+
+<?php
 //phần xử lý vào CSDL
 if (isset($_POST['subdathang'])) {
     $giohangClass = new Giohang();

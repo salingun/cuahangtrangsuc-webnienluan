@@ -20,9 +20,9 @@
 			</form>
 		  </div>
 		  <div class="col-md-6 login-right">
-		  	 <h3>New User? Create an Account</h3>
-		  	 <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system. and expound the actual teachings of the great.</p>
-		     <a href="signup.html" class="login-btn">Create an Account </a>
+		  	 <h3>Bạn chưa có tài khoản? Đăng ký ngay!</h3>
+		  	 <p>Bạn chưa có tài khoản vẫn có thể xem sản phẩm, các thông tin và góp ý trên trang web nhưng có tài khoản sẽ giúp bạn dễ dàng quản lý, mua hàng và lưu trữ thông tin. Hãy đăng ký ngay tài khoản chỉ với 1 bước dễ dàng!</p>
+		     <a href="?page=thanhvien&action=dangky" class="login-btn">Create an Account </a>
 		  </div>
 		  <div class="clearfix"> </div>
 		</div>

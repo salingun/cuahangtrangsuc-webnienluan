@@ -93,6 +93,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <!-- các xử lý chung -->
         <?php
+            //xử lý search
+            if(isset($_POST['btnSearch'])){
+                $searchkey = $_POST['searchkey'];
+//                header('Location: ?page=sanpham&action=search&keyword=$keyword');
+                echo '<meta http-equiv="refresh" content="0;URL=?page=sanpham&action=index&searchkey='.$searchkey.'">';
+            }
+            
             //xử lý đặt hàng
             if(isset($_POST['btnDathang'])){
                 $masp = $_POST['txtMasp'];

@@ -1,6 +1,12 @@
 <div id="result" class="col-md-9 product-block">
     <?php
     $spClass = new Sanpham();
+    if (!empty($_GET['searchkey'])) {
+        $searchkey = $_GET['searchkey'];
+        $dieukien = " WHERE sp_ten LIKE '%".$searchkey."%'";
+    } else {
+        $dieukien = "";
+    }
     if (!empty($_GET['cate'])) {
         $dieukien = " WHERE lsp_ma = " . $_GET['cate'];
     } else {
@@ -11,8 +17,12 @@
     } else {
         $sotrang = 1;
     }
-    $spResult = $spClass->hienthiDSSPPhantrang($dieukien, $sotrang);
-    while ($row = mysqli_fetch_array($spResult, MYSQLI_ASSOC)) {
+    
+    if($spClass->countDSSP($dieukien)<1){?>
+    <p>Không có sản phẩm để hiển thị</p>
+    <?php } else{
+        $spResult = $spClass->hienthiDSSPPhantrang($dieukien, $sotrang);
+        while ($row = mysqli_fetch_array($spResult, MYSQLI_ASSOC)) {
         ?>
 
         <div class="col-md-4 home-grid">
@@ -37,13 +47,17 @@
                 </div>
             </div>
         </div>
-    <?php } ?>
+        <?php }} ?>
     
     <div class="clearfix"> </div>
     
     <?php
     //phân trang
         $counttrang = $spClass->countSotrangSP($dieukien);
+        $searchkey = null;
+        if(isset($_GET['searchkey'])){
+            $searchkey = $_GET['searchkey'];
+        }
         $cate = null;
         if(isset($_GET['cate'])){
             $cate = $_GET['cate'];
@@ -51,15 +65,15 @@
     ?>
     <ul class="pagination">
         <?php if($sotrang>1){?>
-            <li><a href="<?php echo $spClass->linkPhantrang($cate, $sotrang-1);?>">&laquo;</a></li>
+            <li><a href="<?php echo $spClass->linkPhantrang($searchkey,$cate, $sotrang-1);?>">&laquo;</a></li>
         <?php } ?>
         <?php for($trang=1;$trang<=$counttrang;$trang++){?>
             <li <?php if($trang==$sotrang){echo 'class="active"';} ?>>
-                <a href="<?php echo $spClass->linkPhantrang($cate, $trang);?>"><?php echo $trang; ?></a>
+                <a href="<?php echo $spClass->linkPhantrang($searchkey,$cate, $trang);?>"><?php echo $trang; ?></a>
             </li>
         <?php } ?>
         <?php if($sotrang<$counttrang){ ?>
-            <li><a href="<?php echo $spClass->linkPhantrang($cate, $sotrang+1);?>">&raquo;</a></li>
+            <li><a href="<?php echo $spClass->linkPhantrang($searchkey,$cate, $sotrang+1);?>">&raquo;</a></li>
         <?php } ?>
     </ul>
 </div>
