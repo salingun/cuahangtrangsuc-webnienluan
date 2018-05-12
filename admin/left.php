@@ -53,18 +53,7 @@
 				</ul>
 			</li>
 			<li><a href="?trang=donhang"><em class="fa fa-plus">&nbsp;</em> QL đơn hàng</a></li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-3">
-				<em class="fa fa-navicon">&nbsp;</em> QL khuyến mãi <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-3">
-					<li><a class="" href="?trang=khuyenmai&link=create">
-						<span class="fa fa-arrow-right">&nbsp;</span> Thêm KM
-					</a></li>
-					<li><a class="" href="?trang=khuyenmai">
-						<span class="fa fa-arrow-right">&nbsp;</span> Khuyến mãi
-					</a></li>
-				</ul>
-			</li>
+			<li><a href="?trang=gopy"><em class="fa fa-plus">&nbsp;</em> QL góp ý</a></li>
 			<li><a href="?trang=thanhvien"><em class="fa fa-plus">&nbsp;</em> QL thành viên</a></li>
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>

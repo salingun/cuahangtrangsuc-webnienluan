@@ -169,4 +169,21 @@ class Giohang {
         }
         echo '<meta http-equiv="refresh" content="0;URL='.$thisurl.'">';
     }
+    
+    function getTrangthaiDh($dh_trangthai){
+        $out = "";
+        if($dh_trangthai=="xuly"){
+            $out = "Đang xử lý";
+        }
+        if($dh_trangthai=="giao"){
+            $out = "Đang giao";
+        }
+        if($dh_trangthai=="xong"){
+            $out = "Đã xong";
+        }
+        if($dh_trangthai=="huy"){
+            $out = "Đã hủy";
+        }
+        return $out;
+    }
 }

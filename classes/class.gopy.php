@@ -20,4 +20,17 @@ class Gopy {
         $sqlquery = "INSERT INTO gopy (tv_tendangnhap,gy_hoten,gy_email,gy_dienthoai,gy_tieude,gy_noidung,gy_ngaygopy) VALUES ('$tv_tendangnhap','$gy_hoten','$gy_email','$gy_dienthoai','$gy_tieude','$gy_noidung','$gy_ngaygopy')";
         mysqli_query($con->getMyConnection(), $sqlquery);
     }
+    
+    function hienthiDSGopy(){
+        $con = new MyConnection();
+        $sqlquery = "SELECT * FROM gopy";
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        return $result;
+    }
+    
+    function xoaGopy($magy){
+        $con = new MyConnection();
+        $sqlquery = "DELETE FROM gopy WHERE gy_ma=".$magy;
+        mysqli_query($con->getMyConnection(), $sqlquery);
+    }
 }

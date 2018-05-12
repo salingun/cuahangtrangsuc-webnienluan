@@ -1,4 +1,3 @@
-
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.0.min.js"></script>
@@ -25,9 +24,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
-<script src="js/simpleCart.min.js"> </script>
-<script src="js/bootstrap.min.js"></script>
-</head>
 <script src="https://www.google.com/recaptcha/api.js?hl=vi"></script>
 <script type="text/javascript">
  var RecaptchaOptions = {
@@ -36,18 +32,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  </script>
  
  <?php
-include_once("dbconnect.php");
+include_once("connection.php");
 $api_url='https://google.com/recaptcha/api/siteverify';
-$site_key='6Lfjdz0UAAAAAGy0-DTaDm5_iKkU4AmUr7G_kDCA';
-$secret_key='6Lfjdz0UAAAAAH0sJ2foiwl8RwimNUch8rwfOISf';
+$site_key='6Ldl0lEUAAAAANRr3ZqnJF2_7cp33RuFkWubYwtH';
+$secret_key='6Ldl0lEUAAAAAMR0JfisVy7H2FysIFV1NtRvAAgw';
 
 
 if(isset($_POST['btnDangKy'])){	
 	$tendangnhap =$_POST['txtTenDangNhap'];
 	$matkhau=$_POST['txtMatKhau1'];
-	$username=$_POST['txtname'];
+	$hoten=$_POST['txtHoTen'];
 	$email = $_POST['txtEmail'];
-
+	$diachi = $_POST['txtDiaChi'];
+	$dienthoai = $_POST['txtDienThoai'];
+	
+	if(isset($_POST['grpGioiTinh'])){
+		$gioitinh = $_POST['grpGioiTinh'];
+	}
+	$ngaysinh = $_POST['txtNgaySinh'];
+	
 	
 	$loi = "";
 	$site_key_post   =  $_POST['g-recaptcha-response'];
@@ -103,11 +106,11 @@ if(isset($_POST['btnDangKy'])){
 	}
 	else{
 		
-	$sq="Select * from khachhang where kh_tendangnhap='$tendangnhap' OR kh_email='$email'";
+	$sq="Select * from khachhang where tv_tendangnhap='$tendangnhap' OR tv_email='$email'";
 	$ketqua=mysqli_query($conn,$sq);
 	if(mysqli_num_rows($ketqua)==0)
 	{
-		mysqli_query($conn,"INSERT INTO khachhang(kh_tendangnhap,kh_matkhau,kh_ten,kh_gioitinh,kh_diachi,kh_dienthoai,kh_email,kh_ngaysinh,kh_thangsinh,kh_namsinh,kh_cmnd,kh_makichhoat,kh_trangthai,kh_quantri) values ('$tendangnhap','".md5($matkhau)."','$hoten','$gioitinh','$diachi','$dienthoai','$email','$ngaysinh','$thangsinh','$namsinh','','',0,0)") or die(mysqli_error($conn));
+		mysqli_query($conn,"INSERT INTO thanhvien(tv_tendangnhap,tv_matkhau,tv_ten,tv_gioitinh,tv_diachi,tv_dienthoai,tv_email,tv_sinhnhat,tv_cmnd,tv_trangthai,tv_quyen) values ('$tendangnhap','".md5($mattvau)."','$hoten','$gioitinh','$diachi','$dienthoai','$email','$ngaysinh','','',0,0)") or die(mysqli_error($conn));
 echo "<ul class='cssLoi'>Đăng ký thành công</ul>";
 	}
 	else {
@@ -118,36 +121,52 @@ echo "<ul class='cssLoi'>Đăng ký thành công</ul>";
 }
 
 ?>
-
-
-<body>
-<!--header strat here-->
-
-<!--header end here-->
-<!--sign in start here-->
-<div class="signin">
+<div class="singin">
 	<div class="container">
 		<div class="signin-main">
-			<h1>Sign up</h1>
-			<h2>Informations</h2>
-			<form>
-				<input type="text" placeholder="Username">
-				<input type="text" class="no-margin" placeholder="E-mail">
-				<input type="password" placeholder="Password" required=""/>
-				<input type="password" class="no-margin" placeholder="Confirm Password" required=""/>
-				<span class="checkbox1">
-				 <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>i agree terms of use and privacy</label>
-			   </span>
-				<input type="submit" value="Submit">
-			</form>
+        	<h1>Đăng ký</h1>
+			<h2>Thông tin</h2>
+			 	<form id="form1" name="form1" method="post" action="" role="form">
+							      <input type="text" name="txtTenDangNhap" id="txtTenDangNhap" placeholder="Tên đăng nhập" value="<?php if(isset($tendangnhap)) echo $tendangnhap; ?>"/>
+							
+                      
+                      
+                       
+                           
+						
+							      <input type="password" name="txtMatKhau1" id="txtMatKhau1" class="no-margin" placeholder="Mật khẩu"/>
+							
+                       
+                       
+							      <input type="password" name="txtMatKhau2" id="txtMatKhau2"  placeholder="Xác nhận mật khẩu"/>
+							
+							      <input type="text" name="txtHoTen" id="txtHoTen" value="<?php if(isset($hoten)) echo $hoten; ?>" class="no-margin" placeholder="Họ tên"/>
+							
+							      <input type="text" name="txtEmail" id="txtEmail" value="<?php if(isset($email)) echo $email; ?>" placeholder="Email"/>
+							
+							      <input type="text" name="txtDiaChi" id="txtDiaChi" value="<?php if(isset($diachi)) echo $diachi; ?>" class="no-margin" placeholder="Địa chỉ"/>
+							
+							      <input type="text" name="txtDienThoai" id="txtDienThoai" value="<?php if(isset($dienthoai)) echo $dienthoai; ?>" placeholder="Điện thoại" />
+							                         
+                                      <input type="radio" name="grpGioiTinh" value="0" id="grpGioiTinh" class="no-margin"
+                                        <?php if(isset($gioitinh)&&$gioitinh=="0"){ echo "checked";} ?> />
+                                      Nam
+                                    
+                                      <input type="radio" name="grpGioiTinh" value="1" id="grpGioiTinh" 
+                                      <?php if(isset($gioitinh)&&$gioitinh=="1"){ echo "checked";} ?> />
+                                      Nữ
+
+							
+                               
+                                <input type="date" name="txtNgaySinh" id="txtNgaySinh">
+							    <div class="g-recaptcha"   data-sitekey="<?php echo $site_key ?>"></div>
+						
+						      <input type="submit"  class="no-margin" name="btnDangKy" id="btnDangKy" value="Đăng ký"/>
+                              	
+						
+				</form>
+			</div>
 		</div>
-	</div>
 </div>
-<!--sign in end here-->
-<!--footer strat here-->
-<?php
-	include_once("footer.html");
-?>
-<!--footer end here-->
-</body>
-</html>
+    
+
