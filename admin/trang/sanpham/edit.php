@@ -39,7 +39,7 @@
         function bindNSXList($conn, $selectedValue) 
 		{
 
-            $sqlstring = "select ncc_ma, ncc_ten from nhasanxuat";
+            $sqlstring = "select ncc_ma, ncc_ten from nhacungcap";
             $result = mysqli_query($conn, $sqlstring);
             echo "<select name='slNhaCungCap'>
             		<option value='0'>Chọn nhà cung cấp</option>";

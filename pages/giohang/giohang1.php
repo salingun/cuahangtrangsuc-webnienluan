@@ -78,9 +78,10 @@ if (isset($_POST['btnCapnhatgiohang'])) {
             if ($_SESSION["'" . $row['sp_ma'] . "'"] <= 0) {
                 unset($_SESSION["'" . $row['sp_ma'] . "'"]);
             }
+            echo '<meta http-equiv="refresh" content="0;URL=?page=giohang&action=giohang1"/>';
         }
     }
-    echo '<meta http-equiv="refresh" content="0;URL=?page=giohang&action=giohang1"/>';
+    
 }
 ?>
 <!--end-ckeckout-->

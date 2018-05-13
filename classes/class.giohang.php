@@ -22,7 +22,9 @@ class Giohang {
         else {
             $_SESSION["'".$masp."'"]=1;
         }
+        echo "<meta  http-equiv='refresh' content='0, URL=?page=sanpham&action=index'/>";
         echo "<script>alert('Sản phẩm đã thêm vào giỏ hàng')</script>";
+
     }
     function dathang($masp, $soluong){
         if(isset($_SESSION["'".$masp."'"])){
@@ -31,6 +33,7 @@ class Giohang {
         else {
             $_SESSION["'".$masp."'"]=$soluong;
         }
+        echo "<meta   http-equiv='refresh' content='0, URL=?page=sanpham&action=index'/>";
         echo "<script>alert('Sản phẩm đã thêm vào giỏ hàng')</script>";
     }
     

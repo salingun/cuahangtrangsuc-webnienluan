@@ -38,7 +38,7 @@
                                             <input type="hidden" id="txtMasp" name="txtMasp" value="<?php echo $row['sp_ma']; ?>"/>
                                             <input type="number" style="width: 3em" id="txtSoluong" name="txtSoluong" value="" />
                                         </li>
-                                        <li><input type="submit" name="btnDathang" id="btnDathang" class="btn btn-success" value="Đặt hàng"/></li>				
+                                        <li><input type="submit" name="btnDathang" id="btnDathang" class="btn btn-success" value="Thêm vào giỏ"/></li>				
                                     </form>
                                 </ul>
                         </div>

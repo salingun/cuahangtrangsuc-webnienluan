@@ -32,7 +32,7 @@
                     <form name="frmDathang" method="POST">
                         <span>
                             <input type="hidden" id="txtMasp" name="txtMasp" value="<?php echo $row['sp_ma']; ?>"/>
-                            <input type="submit" name="btnDathang" id="btnDathang" class="buttonlink" value="Đặt hàng"/>
+                            <input type="submit" name="btnDathang" id="btnDathang" class="buttonlink" value="Thêm vào giỏ"/>
                         </span>
                     </form>
                 </div>

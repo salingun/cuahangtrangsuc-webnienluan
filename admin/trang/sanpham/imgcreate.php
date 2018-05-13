@@ -41,12 +41,12 @@
 				if($rs)
 				{
 					echo "<script>alert('upload thành công...');</script>";
-					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate&ma=15"/>';
+					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate&ma='.$sp_ma.'"/>';
 				}
 				else
 				{
 					echo "<script>alert('upload không thành công...');</script>";
-					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate&ma=15"/>';
+					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate&ma='.$sp_ma.'"/>';
 				}
 			}
 			else
@@ -58,6 +58,22 @@
 		{
 			echo "Hình không đúng định dạng";
 		}
+	}
+ ?>
+ <?php
+ 	if(isset($_GET["mahinh"]))
+	{
+		$mahinh = $_GET["mahinh"];
+		$ketqua = mysqli_query($conn, "select * from hinhsanpham where hsp_ma=$mahinh");
+		$row = mysqli_fetch_array($ketqua, MYSQLI_ASSOC);
+		$filecanxoa = $row['hsp_tentaptin'];
+		
+		$sp_ma = $row['sp_ma'];
+		unlink("product-imgs/".$filecanxoa);
+		mysqli_query($conn, "delete from hinhsanpham where hsp_ma=$mahinh");
+		echo $sp_ma;
+		echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate&ma='.$sp_ma.'"/>';
+		
 	}
  ?>
  	<h2>Quản lý hình ảnh sản phẩm</h2>
@@ -83,7 +99,7 @@
 						</div>
                      </div>       
  
-                    <!--Danh sach hinh anh-->
+                    <!--Danh sach hinh anh
                      <div class="col-sm-offset-2 col-sm-12">
 						<div class="col-sm-1">
                         	<label class="control-label">STT</label>
@@ -96,19 +112,39 @@
                         </div>
                     </div> <!-- <div class="col-sm-offset-2 col-sm-12">1 hang bang hinh anh-->
                    <!--Row du lieu-->
-                   <?php
+                  
+							<div class='col-sm-offset-2 col-sm-12'>
+								<table cellspacing="0" border="1" style="border-color: #BDBDBD;" width="40%">
+									<thead>
+									<tr>
+										<th style="text-align: center;">STT</th>
+										<th style="text-align: center;">HÌNH ẢNH</th>
+										<th style="text-align: center;">XÓA</th>
+									</tr>
+								</thead>
+									<tbody>
+						 <?php
 		  				$query = "select hsp_ma, hsp_tentaptin from hinhsanpham where sp_ma=".$sp_ma;
 						$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 						$stt = 1;
 						while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 						{
-					?>
-							<div class='col-sm-offset-2 col-sm-12'>
-							  <div class='col-sm-1'>
+						?>
+									<tr>
+										<td style="text-align: center;"><?php echo $stt; ?></td>
+										 <td style="text-align: center;"><img src="product-imgs/<?php echo $row['hsp_tentaptin']; ?>" width="150px"/></td>
+										 <td style="text-align: center;"><a onclick="return deleteConfirm()" 
+                                  href="?trang=sanpham&link=imgcreate&mahinh=<?php echo $row['hsp_ma'];  ?>">
+								  <span style="color: red;" class="glyphicon glyphicon-remove"></span></a></td>
+									</tr>
+								
+							</div>
+
+							<!--  <div class='col-sm-1'>
 								<?php echo $stt; ?>
 								</div>
 							  <div class='col-sm-2'>
-								<img src="product-imgs/<?php echo $row['hsp_tentaptin']; ?>" width="100px"/>
+								<img src="product-imgs/<?php echo $row['hsp_tentaptin']; ?>" width="150px"/>
 							  </div>
 							  <div class='col-sm-3'>
 								  <a onclick="return deleteConfirm()" 
@@ -120,34 +156,23 @@
                             <div class='col-sm-offset-2 col-sm-4'>
                            		<div><hr /></div>
                            </div>
+                       -->
                           <?php
 								$stt++;
 						}
 		  				?>
+		  				</tbody>
+					</table>
 				<!-- <div class="form-group"> -Danh sach hinh anh-->
-
+					
                    <div class="col-sm-offset-2 col-sm-12">
                    		<div class="col-sm-1">
-						     <a href="?trang=sanpham"> Đóng</a>
+						   <a href="?trang=sanpham">  <input type="button" name="dong" id="dong" value="Đóng"></a>
                         </div>
               		</div>
                     
 				</form>
 		</div><!--<div class="container">-->
 
- <?php
- 	if(isset($_GET["mahinh"]))
-	{
-		$mahinh = $_GET["mahinh"];
-		$ketqua = mysqli_query($conn, "select * from hinhsanpham where hsp_ma=$mahinh");
-		$row = mysqli_fetch_array($ketqua, MYSQLI_ASSOC);
-		$filecanxoa = $row['hsp_tentaptin'];
-		
-		$sp_ma = $row['sp_ma'];
-		unlink("product-imgs/".$filecanxoa);
-		mysqli_query($conn, "delete from hinhsanpham where hsp_ma=$mahinh");
-		echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate"/>';
-		
-	}
- ?>
- <
+ 
+ 

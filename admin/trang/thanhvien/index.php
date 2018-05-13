@@ -52,14 +52,14 @@
         <table class="table table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                  <th>Chọn</th>
+                  
                   <th>Email</th>
                   <th>Tên thành viên</th>
                   <th>Tên đăng nhập</th>
                   <th>Quyền</th>
                   <th>Trạng thái</th>
                   <th></th>
-                  <th></th>
+                  
                 </tr>
              </thead>
 
@@ -70,7 +70,7 @@
         while($row=mysqli_fetch_array($result, MYSQLI_ASSOC)){
       ?>
       <tr>
-               <td><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $row['tv_email']; ?>"></td>
+             
                 <td><?php echo $row['tv_email'];?></td>
                 <td><?php echo $row['tv_ten'];?></td>
                 <td><?php echo $row['tv_tendangnhap'];?></td>
@@ -79,9 +79,9 @@
              
               <td align='center' class='cotNutChucNang'>
               <a href="?trang=thanhvien&link=edit&ma=<?php echo $row['tv_email'];?>"><span style="color: blue;" class="glyphicon glyphicon-pencil"></span></a></td>
-               <td align='center' class='cotNutChucNang'>
+             <!--  <td align='center' class='cotNutChucNang'>
                <a href="?trang=thanhvien&link=edit&ma=<?php  echo $row['tv_email'];?>" onclick="return ktra()"><span style="color: red;" class="glyphicon glyphicon-remove"></span></a>
-              </td>
+              </td>-->
             </tr>
             <?php
         }
@@ -90,11 +90,12 @@
         
         </table>  
 <!--Nút Thêm mới , xóa tất cả-->
-        <div class="row" style="background-color:#FFF"><!--Nút chức nang-->
-            <div class="col-md-12">
+  <!--      <div class="row" style="background-color:#FFF"><!--Nút chức nang-->
+      <!--      <div class="col-md-12">
               <input  type="submit" value="Xóa mục chọn" name="btnXoa" id="btnXoa" onclick="return ktra()" class="btn btn-primary"/>
             </div>
-        </div><!--Nút chức nang-->
+        </div>
+      -->
  </form>
   <?php
  if(isset($_POST['btnXoa']) && isset($_POST['checkbox']))

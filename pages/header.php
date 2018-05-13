@@ -68,8 +68,12 @@
                         <h5>
                             <a href="?page=giohang&action=giohang1">
                                 <img src="images/cart.png" alt=""/><span>Giỏ hàng</span>
+                                <p><?php $giohangClass = new Giohang(); echo $giohangClass->countGiohang(); 
+
+                                ?> sản phẩm</p>
+
                             </a>
-                            <p><?php $giohangClass = new Giohang(); echo $giohangClass->countGiohang(); ?> sản phẩm</p>
+                            
                         </h5>
                     </div> 
                     <div class="head-signin">
