@@ -21,9 +21,8 @@ class Sanpham {
         return $result;
     }
     
-    function hienthiDSSPPhantrang($dieukien,$sotrang){
+    function hienthiDSSPPhantrang($dieukien,$sotrang,$sosptrentrang){
         $con = new MyConnection();
-        $sosptrentrang = 12;
         $sqlquery = "SELECT * FROM sanpham".$dieukien." LIMIT ".(($sotrang-1)*$sosptrentrang).",".$sosptrentrang;
         $result = mysqli_query($con->getMyConnection(), $sqlquery);
         return $result;

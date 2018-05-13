@@ -21,7 +21,7 @@
     if($spClass->countDSSP($dieukien)<1){?>
     <p>Không có sản phẩm để hiển thị</p>
     <?php } else{
-        $spResult = $spClass->hienthiDSSPPhantrang($dieukien, $sotrang);
+        $spResult = $spClass->hienthiDSSPPhantrang($dieukien, $sotrang,12);
         while ($row = mysqli_fetch_array($spResult, MYSQLI_ASSOC)) {
         ?>
 
