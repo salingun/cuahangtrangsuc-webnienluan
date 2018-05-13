@@ -1,4 +1,4 @@
-<div class="blc-layer3">
+<!--<div class="blc-layer3">
     <div class="container">
         <div class="blc-layer3-main">
             <div class="col-md-4 blc-layer3-grids1">
@@ -47,4 +47,4 @@
             <div class="clearfix"> </div>
         </div>
     </div>
-</div>
+</div>-->
