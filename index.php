@@ -60,7 +60,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!--header strat here-->
             <?php include_once 'pages/header.php' ?>
         <!--header end here-->
-        
             <?php if (empty($_GET['page'])) {?>
                 <!--banner strat here-->
                     <?php include 'pages/banner.php'?>

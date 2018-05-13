@@ -81,7 +81,7 @@
               <td><?php echo $row["ncc_ten"] ?></td>
               
               
-             <td align='center' class='cotNutChucNang'><a href="??trang=sanpham&link=imgcreate&ma=<?php echo $row['sp_ma'] ?>"><span style="color: blue;" class="glyphicon glyphicon-camera"></span></a></td>
+             <td align='center' class='cotNutChucNang'><a href="?trang=sanpham&link=imgcreate&ma=<?php echo $row['sp_ma'] ?>"><span style="color: blue;" class="glyphicon glyphicon-camera"></span></a></td>
              
               <td align='center' class='cotNutChucNang'>
               <a href="?trang=sanpham&link=edit&ma=<?php echo $row['sp_ma'];?>"><span style="color: blue;" class="glyphicon glyphicon-pencil"></span></a>

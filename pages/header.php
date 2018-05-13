@@ -19,7 +19,7 @@
                         <!--/.navbar-header-->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a href="index.php">Home</a></li>
+                                <li><a href="index.php">Trang chủ</a></li>
                                 <li class="dropdown">
                                     <a href="?page=sanpham&action=index" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <b class="caret"></b></a>
                                     <ul class="dropdown-menu multi-column columns-2">
@@ -58,7 +58,7 @@
                 <div class="search">
                     <div class="search-text">
                         <form id="frmSearch" name="frmSearch" method="POST">
-                            <input id="searchkey" name="searchkey" class="serch" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {
+                            <input id="searchkey" name="searchkey" class="serch" type="text" value="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {
                                     this.value = 'Search';
                                 }"/>
                                 <button type="submit" name="btnSearch" id="btnSearch" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-search"></span></button>
@@ -71,12 +71,21 @@
                             </a>
                             <p><?php $giohangClass = new Giohang(); echo $giohangClass->countGiohang(); ?> sản phẩm</p>
                         </h5>
-                    </div>    
+                    </div> 
                     <div class="head-signin">
                         <h5>
                             <?php
                                 $tvClass = new Thanhvien();
-                                $codechuadn = '<a href="?page=thanhvien&action=dangnhap"><i class="hd-dign"></i>Sign in</a>';
+                                $codechuadn = '<a href="?page=thanhvien&action=dangky"><i class="hd-dign"></i>Đăng ký</a>';
+                                echo $tvClass->getLoggedCode($codechuadn);
+                            ?>
+                        </h5>
+                    </div>                 
+                    <div class="head-signin">
+                        <h5>
+                            <?php
+                                $tvClass = new Thanhvien();
+                                $codechuadn = '<a href="?page=thanhvien&action=dangnhap"><i class="hd-dign"></i>Đăng nhập</a>';
                                 echo $tvClass->getLoggedCode($codechuadn);
                             ?>
                         </h5>

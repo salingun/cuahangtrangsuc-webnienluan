@@ -18,9 +18,48 @@
 			$rs = mysqli_query($conn,$sql);
 			$row = mysqli_fetch_row($rs);
 			$ten = $row[0];
-	
+	}
+	else
+	{
+		echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham"/>';
+	}	
  	?>
- 
+
+<?php
+ 	if(isset($_POST['btnLuu']))
+	{
+		$sp_ma = $_POST['txtMa'];
+		$taptin = $_FILES['fileHinhAnh'];
+		if($taptin['type'] == "image/jpg" || $taptin['type'] == "image/jpeg" || $taptin['type'] == "image/png" || $taptin['type'] == "image/gif")
+		{
+			if($taptin['size'] <= 614400)
+			{
+				$tentaptin = $sp_ma."_".$taptin['name'];
+				copy($taptin['tmp_name'], "product-imgs/".$tentaptin);
+				$sqstring = "insert into hinhsanpham(hsp_tentaptin, sp_ma) values('$tentaptin', '$sp_ma')";
+				$rs = mysqli_query($conn, $sqstring);
+				if($rs)
+				{
+					echo "<script>alert('upload thành công...');</script>";
+					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate&ma=15"/>';
+				}
+				else
+				{
+					echo "<script>alert('upload không thành công...');</script>";
+					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate&ma=15"/>';
+				}
+			}
+			else
+			{
+				echo "hình có kích thước quá lớn";
+			}
+		}
+		else
+		{
+			echo "Hình không đúng định dạng";
+		}
+	}
+ ?>
  	<h2>Quản lý hình ảnh sản phẩm</h2>
 		<div>
 			 	<form  id="frmHinhAnh" class="form-horizontal" name="frmHinhAnh" method="post" action="" enctype="multipart/form-data" role="form">
@@ -95,48 +134,7 @@
                     
 				</form>
 		</div><!--<div class="container">-->
-<?php 
-	}
-	else
-	{
-		echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham"/>';
-	}
-?>
-<?php
- 	if(isset($_POST['btnLuu']))
-	{
-		$sp_ma = $_POST['txtMa'];
-		$taptin = $_FILE['fileHinhAnh'];
-		if($taptin['type'] == "images/jpg" || $taptin['type'] == "images/jpeg" || $taptin['type'] == "images/png" || $taptin['type'] == "images/gif")
-		{
-			if($taptin['size'] <= 614400)
-			{
-				$tentaptin = $sp_ma."_".$taptin['name'];
-				copy($taptin['tmp_name'], "product-imgs/".$tentaptin);
-				$sqstring = "insert into hinhsanpham(hsp_tentaptin, sp_ma) values('$tentaptin', '$sp_ma')";
-				$rs = mysqli_query($conn, $sqstring);
-				if($rs)
-				{
-					echo "<script>alert('upload thành công...');</script>";
-					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate"/>';
-				}
-				else
-				{
-					echo "<script>alert('upload không thành công...');</script>";
-					echo '<meta http-equiv="refresh" content="0;URL=?trang=sanpham&link=imgcreate"/>';
-				}
-			}
-			else
-			{
-				echo "hình có kích thước quá lớn";
-			}
-		}
-		else
-		{
-			echo "Hình không đúng định dạng";
-		}
-	}
- ?>
+
  <?php
  	if(isset($_GET["mahinh"]))
 	{
@@ -152,3 +150,4 @@
 		
 	}
  ?>
+ <
