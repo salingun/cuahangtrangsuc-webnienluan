@@ -59,9 +59,9 @@
                     <div class="search-text">
                         <form id="frmSearch" name="frmSearch" method="POST">
                             <input id="searchkey" name="searchkey" class="serch" type="text" value="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                    this.value = 'Search';
+                                    this.value = 'Tìm kiếm';
                                 }"/>
-                                <button type="submit" name="btnSearch" id="btnSearch" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-search"></span></button>
+                                <button style="position: absolute; line-height: 2.4;" type="submit" name="btnSearch" id="btnSearch" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-search"></span></button>
                         </form>
                     </div>
                     <div class="cart box_1">
@@ -73,15 +73,13 @@
                         </h5>
                     </div> 
                     <div class="head-signin">
+                        <div>
                         <h5>
-                            <?php
-                                $tvClass = new Thanhvien();
-                                $codechuadn = '<a href="?page=thanhvien&action=dangky"><i class="hd-dign"></i>Đăng ký</a>';
-                                echo $tvClass->getLoggedCode($codechuadn);
-                            ?>
+                            <a href="?page=thanhvien&action=dangky"><i class="hd-dign"></i>Đăng ký</a>
+                                                           
                         </h5>
-                    </div>                 
-                    <div class="head-signin">
+                        </div>
+                        <div style="margin-top:2px; ">
                         <h5>
                             <?php
                                 $tvClass = new Thanhvien();
@@ -89,11 +87,12 @@
                                 echo $tvClass->getLoggedCode($codechuadn);
                             ?>
                         </h5>
-                    </div>              
-                    <div class="clearfix"> </div>					
+                        </div>
+                    </div>                            
+                   		
                 </div>
             </div>
-            <div class="clearfix"> </div>
+           
         </div>
     </div>
 
