@@ -49,49 +49,6 @@ class Thanhvien {
         return $check;
     }
     
-    function dangnhapxetquyen($username,$password,$rule){
-        $check = $this->checkUserPassRule($username, $password, $rule);
-        if($check==TRUE)
-	{
-		$_SESSION['User']=$username;
-		echo "<script>alert('Đăng nhập thành công!')</script>";
-		echo '<meta http-equiv="REFRESH" content ="0;URL=index.php">';
-	}
-	else
-	{
-                $guest_rule = $this->getRuleByUsername($username);
-                if($guest_rule!="qt"){
-                    echo "<script>alert('Tài khoản của bạn không phải là quản trị!')</script>";
-                } else {
-                    echo "<script>alert('Sai mật khẩu!')</script>";
-                }
-	}
-    }
-    
-    function checkUserPassRule($username, $password, $rule){
-        $con = new MyConnection();
-        $sqlquery = "SELECT tv_tendangnhap FROM thanhvien WHERE tv_tendangnhap='$username' AND tv_matkhau='$password' AND tv_quyen='$rule'";
-        $result = mysqli_query($con->getMyConnection(), $sqlquery);
-        $count = mysqli_num_rows($result);
-        if($count > 0)
-	{
-		$check = TRUE;
-	}
-	else
-	{
-		$check = FALSE;
-	}
-        return $check;
-    }
-    
-    function getRuleByUsername($username){
-        $con = new MyConnection();
-        $sqlquery = "SELECT tv_quyen FROM thanhvien WHERE tv_tendangnhap='".$username."'";
-        $result = mysqli_query($con->getMyConnection(), $sqlquery);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        return $row['tv_quyen'];
-    }
-            
     function getUsername(){
         $username = '';
         if(isset($_SESSION['User'])){
@@ -105,10 +62,6 @@ class Thanhvien {
             $check = TRUE;
         }
         return $check;
-    }
-    
-    function checkLoggedRule($rule){
-        
     }
     
     function checkLoggedGoLogin(){
