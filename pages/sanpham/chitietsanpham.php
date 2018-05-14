@@ -16,7 +16,7 @@
                                         while($rowhinh = mysqli_fetch_array($hinhResult)){
                                     ?>
                                         <li data-thumb="<?php echo $rowhinh['hsp_tentaptin'];?>">
-                                            <div class="thumb-image"> <img src="<?php echo $rowhinh['hsp_tentaptin'];?>" data-imagezoom="true" class="img-responsive"> </div>
+                                            <div class="thumb-image"> <img src="product-imgs/<?php echo $rowhinh['hsp_tentaptin'];?>" data-imagezoom="true" class="img-responsive"> </div>
                                         </li>
                                     <?php } ?>
 				  </ul>

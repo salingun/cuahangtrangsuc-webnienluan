@@ -18,7 +18,7 @@
             $sqlstring = "select ncc_ma, ncc_ten from nhacungcap";
             $result = mysqli_query($conn, $sqlstring);
             echo "<select name='slnhacungcap'>
-                <option value='0'>Chọn nhà sản xuất</option>";
+                <option value='0'>Chọn nhà cung cấp</option>";
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                       echo "<option value='".$row['ncc_ma']."'>".$row['ncc_ten']."</option>";
                 }

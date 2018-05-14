@@ -35,7 +35,7 @@
 			if($taptin['size'] <= 614400)
 			{
 				$tentaptin = $sp_ma."_".$taptin['name'];
-				copy($taptin['tmp_name'], "product-imgs/".$tentaptin);
+				copy($taptin['tmp_name'], "../product-imgs/".$tentaptin);
 				$sqstring = "insert into hinhsanpham(hsp_tentaptin, sp_ma) values('$tentaptin', '$sp_ma')";
 				$rs = mysqli_query($conn, $sqstring);
 				if($rs)
@@ -132,7 +132,7 @@
 						?>
 									<tr>
 										<td style="text-align: center;"><?php echo $stt; ?></td>
-										 <td style="text-align: center;"><img src="product-imgs/<?php echo $row['hsp_tentaptin']; ?>" width="150px"/></td>
+										 <td style="text-align: center;"><img src="../product-imgs/<?php echo $row['hsp_tentaptin']; ?>" width="150px"/></td>
 										 <td style="text-align: center;"><a onclick="return deleteConfirm()" 
                                   href="?trang=sanpham&link=imgcreate&mahinh=<?php echo $row['hsp_ma'];  ?>">
 								  <span style="color: red;" class="glyphicon glyphicon-remove"></span></a></td>

@@ -79,8 +79,11 @@
                     <div class="head-signin">
                         <div>
                         <h5>
-                            <a href="?page=thanhvien&action=dangky"><i class="hd-dign"></i>Đăng ký</a>
-                                                           
+                            <?php
+                                $tvClass = new Thanhvien();
+                                $codechuadn = '<a href="?page=thanhvien&action=dangky"><i class="hd-dign"></i>Đăng ký</a>';
+                                echo $tvClass->getLoggedAndUnloggedCode($codechuadn,"");
+                            ?>
                         </h5>
                         </div>
                         <div style="margin-top:2px; ">

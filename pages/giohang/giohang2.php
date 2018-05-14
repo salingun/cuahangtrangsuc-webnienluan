@@ -100,7 +100,8 @@ if (isset($_POST['subdathang'])) {
                 <label for="" class="col-sm-3 control-label"></label>
                 <div class="col-xs-6">
                     <input type="submit" class="btn btn-success" id="subdathang" name="subdathang" value="Đặt hàng">
-                    <input type="submit" class="btn btn-default" id="subhuy" name="subhuy" value="Hủy bỏ">
+                    <input type="button" class="btn btn-default" id="subhuy" name="subhuy" value="Hủy bỏ"
+                    onclick="window.location='?page=giohang&action=giohang1'" />
                 </div>
             </div>
 

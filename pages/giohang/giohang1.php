@@ -33,8 +33,12 @@
                                     </li>
                                     <li><span><?php echo $row['sp_ten']; ?></span></li>
                                     <li>
-                                        <span>
-                                            <input type="number" style="width:3em;" id="cnsl<?php echo $row['sp_ma']; ?>" name="cnsl<?php echo $row['sp_ma']; ?>" value="<?php echo $_SESSION["'" . $row['sp_ma'] . "'"]; ?>"/>
+                                        <span><?php $soluongxet=$_SESSION["'" . $row['sp_ma'] . "'"];
+                                                if($soluongxet>$row['sp_soluong']){
+                                                    echo "<script>alert('".$row['sp_ten']." chỉ tồn kho ".$row['sp_soluong']."');</script>";
+                                                }
+                                             ?>
+                                            <input type="number" style="width:3em;" id="cnsl<?php echo $row['sp_ma']; ?>" name="cnsl<?php echo $row['sp_ma']; ?>" value="<?php echo $soluongxet; ?>"/>
                                         </span>
                                         SL tối đa có thể đặt: <?php echo $row['sp_soluong'] ?>
                                     </li>

@@ -1,5 +1,7 @@
-    
-       
+   
+     <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>  
     <script language="javascript">
       function ktra()
     {  
@@ -49,7 +51,7 @@
         <p>
           <a href="?trang=sanpham&link=create"><span class="glyphicon glyphicon-plus"></span> Thêm mới</a>
         </p>
-        <table class="table table-hover" cellspacing="0" width="100%">
+        <table id="table" class="table table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>
                   <th><strong>Chọn</strong></th>

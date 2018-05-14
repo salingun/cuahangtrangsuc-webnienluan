@@ -22,7 +22,7 @@
         <div class="col-md-4 home-grid">
             <div class="home-product-main">
                 <div class="home-product-top">
-                    <img src="<?php $spHinh = $spClass->getHinhSPByID($row['sp_ma']); echo mysqli_fetch_array($spHinh)['hsp_tentaptin']; ?>" width="245px" />
+                    <img src="product-imgs/<?php $spHinh = $spClass->getHinhSPByID($row['sp_ma']); echo mysqli_fetch_array($spHinh)['hsp_tentaptin']; ?>" width="245px" />
                 </div>
                 <div class="home-product-bottom">
                     <h3><a href="?page=sanpham&action=chitietsanpham&masp=<?php echo $row['sp_ma'];?>"><?php echo $tensp = (strlen($row['sp_ten']) <= 20) ? $row['sp_ten'] : substr($row['sp_ten'], 0, 17) . "..."; ?></a></h3>
