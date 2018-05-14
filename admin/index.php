@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@
         ?>
         <?php
             $tvClass = new Thanhvien();
-            $tvClass->checkLoggedGoLoginRule($rule);
+            $tvClass->checkLoggedGoLoginRule("qt");
         ?>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
