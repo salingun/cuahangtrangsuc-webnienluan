@@ -9,11 +9,11 @@
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
-		<form role="search">
+<!--		<form role="search">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
-		</form>
+		</form>-->
 		<ul class="nav menu">
 			<li class="active"><a href="index.php"><em class="fa fa-dashboard">&nbsp;</em> Trang chủ</a></li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
