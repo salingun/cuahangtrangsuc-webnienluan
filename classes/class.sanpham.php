@@ -94,4 +94,12 @@ class Sanpham {
         $row = mysqli_fetch_array($result);
         return $row['ncc_ten'];
     }
+    
+    function countSanpham($dieukien){
+        $con = new MyConnection();
+        $sqlquery = "SELECT sp_ma FROM sanpham".$dieukien;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        $count = mysqli_num_rows($result);
+        return $count;
+    }
 }

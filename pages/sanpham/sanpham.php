@@ -2,8 +2,8 @@
     <?php
     $spClass = new Sanpham();
     if (!empty($_GET['searchkey'])) {
-        $searchkey = $_GET['searchkey'];
-        $dieukien = " WHERE sp_ten LIKE '%".$searchkey."%'";
+        $searchkey = "%".$_GET['searchkey']."%";
+        $dieukien = " WHERE sp_ten = '".$searchkey."'";
     } else {
         $dieukien = "";
     }

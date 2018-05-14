@@ -55,5 +55,5 @@
 			<li><a href="?trang=donhang"><em class="fa fa-navicon">&nbsp;</em> QL đơn hàng</a></li>
 			<li><a href="?trang=gopy"><em class="fa fa-navicon">&nbsp;</em> QL góp ý</a></li>
 			<li><a href="?trang=thanhvien"><em class="fa fa-navicon">&nbsp;</em> QL thành viên</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>

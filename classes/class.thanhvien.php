@@ -186,4 +186,12 @@ class Thanhvien {
         $sqlquery = "UPDATE thanhvien SET tv_matkhau='".$passmoi."' WHERE tv_tendangnhap='$tendangnhap'";
         mysqli_query($con->getMyConnection(), $sqlquery);
     }
+    
+    function countThanhvien($dieukien){
+        $con = new MyConnection();
+        $sqlquery = "SELECT tv_tendangnhap FROM thanhvien".$dieukien;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        $count = mysqli_num_rows($result);
+        return $count;
+    }
 }

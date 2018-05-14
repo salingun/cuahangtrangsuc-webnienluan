@@ -33,4 +33,12 @@ class Gopy {
         $sqlquery = "DELETE FROM gopy WHERE gy_ma=".$magy;
         mysqli_query($con->getMyConnection(), $sqlquery);
     }
+    
+    function countGopy($dieukien){
+        $con = new MyConnection();
+        $sqlquery = "SELECT gy_ma FROM gopy".$dieukien;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        $count = mysqli_num_rows($result);
+        return $count;
+    }
 }

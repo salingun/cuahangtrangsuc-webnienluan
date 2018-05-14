@@ -65,6 +65,18 @@ class Giohang {
         return $tongtien;
     }
             
+    function countSolgDh($madh){
+        $con = new MyConnection();
+        $count = 0;
+        $sqlquery = "SELECT * FROM chitiet_donhang WHERE dh_ma=".$madh;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        while($row=mysqli_fetch_array($result))
+        {
+            $count += $row['ctdh_soluong'];
+        }
+        return $count;
+    }
+    
     function capnhatSoluong($soluongcu,$soluongmoi,$soluongkho){
         $soluong = $soluongcu;
         if($soluongmoi!=$soluongcu){
@@ -200,5 +212,20 @@ class Giohang {
             $out = "Đã hủy";
         }
         return $out;
+    }
+    
+    function countDonhang($dieukien){
+        $con = new MyConnection();
+        $sqlquery = "SELECT dh_ma FROM donhang".$dieukien;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        $count = mysqli_num_rows($result);
+        return $count;
+    }
+    
+    function hienthiDSDh($dieukien){
+        $con = new MyConnection();
+        $sqlquery = "SELECT * FROM donhang".$dieukien;
+        $result = mysqli_query($con->getMyConnection(), $sqlquery);
+        return $result;
     }
 }
