@@ -104,7 +104,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $masp = $_POST['txtMasp'];
                 $soluong = 1;
                 if(isset($_POST['txtSoluong'])){
-                    $soluong = $_POST['txtSoluong'];
+                    $soluong = intval($_POST['txtSoluong']);
                 }
                 $giohangClass = new Giohang();
                 $giohangClass->dathang($masp, $soluong);
