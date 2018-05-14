@@ -108,6 +108,16 @@ class Thanhvien {
     }
     
     function checkLoggedRule($rule){
+        if(isset($_SESSION['User'])){
+            $guest_rule = $this->getRuleByUsername($_SESSION['User']);
+            if($guest_rule == $rule){
+                $check = TRUE;
+            }else {
+                $check = FALSE;
+            }
+        } else{
+            $check = FALSE;
+        }
         
     }
     
@@ -115,6 +125,13 @@ class Thanhvien {
         if(!isset($_SESSION['User'])){
             echo "<script>alert('Bạn cần đăng nhập!')</script>";
             echo '<meta http-equiv="REFRESH" content ="0;URL=?page=thanhvien&action=dangnhap">';
+        }
+    }
+    
+    function checkLoggedGoLoginRule($rule){
+        if(!$this->checkLoggedRule($rule)){
+            echo "<script>alert('Bạn cần đăng nhập!')</script>";
+            echo '<meta http-equiv="REFRESH" content ="0;URL=login.php">';
         }
     }
     

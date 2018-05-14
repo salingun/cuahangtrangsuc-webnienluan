@@ -24,6 +24,10 @@
         <?php
             require_once '../classes/myClass.php';
         ?>
+        <?php
+            $tvClass = new Thanhvien();
+            $tvClass->checkLoggedGoLoginRule($rule);
+        ?>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<?php include('top.php') ?>
