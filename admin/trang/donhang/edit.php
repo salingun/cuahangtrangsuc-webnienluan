@@ -21,6 +21,7 @@ if(isset($_GET['ma']))
   <?php
   	if(isset($_POST['subcndh']))
   	{
+                $con = new MyConnection();
   		$dh_ngaygiao = $_POST['Ngay_gh'];
   		$dh_trangthai = $_POST['Tinhtrang_dh'];
   		$loi = "";
@@ -35,7 +36,7 @@ if(isset($_GET['ma']))
 
   		if($loi == "")
   		{
-  			mysqli_query("UPDATE donhang SET dh_ngaygiao='$dh_ngaygiao', dh_trangthai='$dh_trangthai' Where dh_ma = '$Ma_dh'");
+  			mysqli_query($con->getMyConnection(),"UPDATE donhang SET dh_ngaygiao='$dh_ngaygiao', dh_trangthai='$dh_trangthai' Where dh_ma = '$Ma_dh'");
 				echo '<p style="color:green;"> Đã cập nhật thành công! </p>';
   		}else {
   			echo $loi;
@@ -82,6 +83,7 @@ if(isset($_GET['ma']))
 	                <option value="xuly" <?php if($dh_trangthai=='xuly'){echo 'selected';} ?> >Đang xử lý</option>
 	                <option value="giao" <?php if($dh_trangthai=='giao'){echo 'selected';} ?> >Đang giao</option>
 	                <option value="xong" <?php if($dh_trangthai=='xong'){echo 'selected';} ?> >Đã xong</option>
+                        <option value="xong" <?php if($dh_trangthai=='huy'){echo 'selected';} ?> >Đã xong</option>
             	</select>
 		    </div>
   		</div>
