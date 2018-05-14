@@ -22,7 +22,7 @@
     <tr>
         <td><?php echo $rowdh['dh_ma']; ?></td>
         <td><?php echo $rowdh['dh_ngaylap']; ?></td>
-        <td><?php echo $rowdh['dh_trangthai']; ?></td>
+        <td><?php echo $giohangClass->getTrangthaiDh($rowdh['dh_trangthai']); ?></td>
         <td><?php echo $rowdh['dh_tennguoinhan']; ?></td>
         <td><?php echo $rowdh['dh_dt']; ?></td>
         <td><?php echo $rowdh['dh_noigiao']; ?></td>

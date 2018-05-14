@@ -27,7 +27,7 @@
         </div>
         <div class="row">
             <div class="col-md-3">Trạng thái: </div>
-            <div class="col-md-3"><?php echo $dh['dh_trangthai']; ?></div>
+            <div class="col-md-3"><?php echo $giohangClass->getTrangthaiDh($dh['dh_trangthai']); ?></div>
         </div>
         <div class="row">
             <div class="col-md-3"><b>Tên người nhận: </b></div>
