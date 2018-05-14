@@ -39,7 +39,7 @@
                   <td><?php echo $row['gy_email'];?></td>
                   <td><?php echo $row['gy_dienthoai'];?></td>
                   <td><?php echo $row['gy_tieude'];?></td>
-                  <td><?php echo substr(strip_tags(htmlspecialchars_decode($row['gy_noidung'])), 0,200);?>...</td>
+                  <td><a href="#" class="" data-placement="left" data-toggle="popover" title="<?php echo $row['tv_tendangnhap']."(".$row['gy_email'].")" ?>" data-content="<?php echo $row['gy_noidung'];?>"><?php echo substr(strip_tags(htmlspecialchars_decode($row['gy_noidung'])), 0,200);?>...</a></td>
                   <td><a href="?trang=gopy&ma=<?php  echo $row['gy_ma'];?>" onclick="return ktra()"><span style="color: red;" class="glyphicon glyphicon-remove"></span></a></td>
               </tr>
             <?php } ?>
@@ -50,7 +50,7 @@
               <input  type="submit" value="Xóa mục chọn" name="btnXoa" id="btnXoa" onclick="return ktra()" class="btn btn-primary"/>
             </div>
         </div><!--Nút chức nang-->
- </form>
+</form>
  <?php
     //xử lý xóa nhiều
     if(isset($_POST['btnXoa']) && isset($_POST['checkbox']))
