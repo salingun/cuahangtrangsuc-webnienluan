@@ -35,7 +35,7 @@
 				<ul class="bann-btns">
                                     <form name="frmDathang" method="POST">
                                         <li>
-                                            <input type="hidden" id="txtMasp" name="txtMasp" value="<?php echo $row['sp_ma']; ?>"/>
+                                            <input type="hidden" id="txtMasp" name="txtMasp" value="<?php echo $rowctsp['sp_ma']; ?>"/>
                                             <input type="number" style="width: 3em" id="txtSoluong" name="txtSoluong" value="" />
                                         </li>
                                         <li><input type="submit" name="btnDathang" id="btnDathang" class="btn btn-success" value="Đặt hàng"/></li>				
