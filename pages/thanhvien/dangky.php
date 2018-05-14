@@ -1,16 +1,6 @@
-<script src="https://www.google.com/recaptcha/api.js?hl=vi"></script>
-<script type="text/javascript">
- var RecaptchaOptions = {
-    theme : 'white'
- };
- </script>
- 
+
  <?php
 include_once("connection.php");
-$api_url='https://google.com/recaptcha/api/siteverify';
-$site_key='6Ldl0lEUAAAAANRr3ZqnJF2_7cp33RuFkWubYwtH';
-$secret_key='6Ldl0lEUAAAAAMR0JfisVy7H2FysIFV1NtRvAAgw';
-
 
 if(isset($_POST['btnDangKy'])){	
         $loi = "";
@@ -29,31 +19,7 @@ if(isset($_POST['btnDangKy'])){
 	
 	
 	
-	$site_key_post   =  $_POST['g-recaptcha-response'];
-	//lay iP khach
-	if(!empty($_SERVER['HTTP_CLIENT_IP']))
-	{
-		$remoteip=$_SERVER['HTTP_CLIENT_IP'];
-		
-	}
-	else if(!empty($_SERVER['HTTP_FORWARDED_FOR']))
-	{
-		$remoteip=$_SERVER['HTTP_FORWARDED_FOR'];
-	}
-	else
-	{
-		$remoteip=$_SERVER['REMOTE_ADDR'];
-			
-	}
-	//tao linknket noi
-	$api_url=$api_url.'?secret='.$secret_key.'&response='.$site_key_post.'&remoteip='.$remoteip;
-	//lay ket qua tra ve gg
-	$response=file_get_contents($api_url);
-	$response=json_decode($response);
-	if(!($response->success))
-	{
-		$loi.='<li>Captcha không đúng</li>';
-	}
+	
 	if($_POST['txtTenDangNhap']==""||$_POST['txtMatKhau1']==""
 	||$_POST['txtMatKhau2']==""||$_POST['txtHoTen']==""
 	||$_POST['txtEmail']==""||$_POST['txtDiaChi']==""||!isset($gioitinh)){
@@ -90,6 +56,7 @@ if(isset($_POST['btnDangKy'])){
 	{
 		mysqli_query($conn,"INSERT INTO thanhvien(tv_tendangnhap,tv_matkhau,tv_ten,tv_gioitinh,tv_diachi,tv_dienthoai,tv_email,tv_sinhnhat,tv_trangthai,tv_quyen) values ('$tendangnhap','".md5($matkhau)."','$hoten','$gioitinh','$diachi','$dienthoai','$email','$sinhnhat','dangsudung','tv')") or die(mysqli_error($conn));
 echo "<ul class='cssLoi' style='color: green;'>Đăng ký thành công</ul>";
+	 echo "<meta   http-equiv='refresh' content='0, URL=?page=thanhvien&action=dangnhap'/>";
 	}
 	else {
 		echo "<ul class='cssLoi'>Tên đăng nhập hoặc email đã được sử dụng</ul>";
@@ -135,7 +102,7 @@ echo "<ul class='cssLoi' style='color: green;'>Đăng ký thành công</ul>";
                 } ?> />
                 Nữ
 
-                <div class="g-recaptcha"   data-sitekey="<?php echo $site_key ?>"></div>
+            
 
                 <input type="submit"  class="no-margin" name="btnDangKy" id="btnDangKy" value="Đăng ký"/>
 

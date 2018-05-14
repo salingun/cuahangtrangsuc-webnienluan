@@ -27,14 +27,26 @@ class Giohang {
 
     }
     function dathang($masp, $soluong){
+        $spClass = new Sanpham();
+        $sp = $spClass->hienthi1SP($masp);
+        $soluongkho = $sp['sp_soluong'];
+        
         if(isset($_SESSION["'".$masp."'"])){
-            $_SESSION["'".$masp."'"]=$_SESSION["'".$masp."'"]+$soluong;
+            $soluong = $_SESSION["'".$masp."'"]+$soluong;
+            if($soluong>$soluongkho){
+                echo "<script>alert('".$sp['sp_ten']." chỉ tồn kho ".$sp['sp_soluong']."');</script>";
+                $soluong = $soluongkho;
+            }
         }
         else {
-            $_SESSION["'".$masp."'"]=$soluong;
+            if($soluong>$soluongkho){
+                echo "<script>alert('".$sp['sp_ten']." chỉ tồn kho ".$sp['sp_soluong']."');</script>";
+                $soluong = $soluongkho;
+            }
         }
+        $_SESSION["'".$masp."'"]=$soluong;
         echo "<meta   http-equiv='refresh' content='0, URL=?page=sanpham&action=index'/>";
-        echo "<script>alert('Sản phẩm đã thêm vào giỏ hàng')</script>";
+        echo "<script>alert('Đã thêm ".$soluong." ".$sp['sp_ten']." vào giỏ hàng')</script>";
     }
     
     function thanhtiensp($soluong,$dongia){
