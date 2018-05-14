@@ -12,7 +12,7 @@
     }
 </script>
 <form name="frmXoa" method="post" action="">
-        <h1>Quản lý góp ý</h1>
+        <h1>Danh sách góp ý</h1>
         <table class="table table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>

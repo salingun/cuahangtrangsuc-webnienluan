@@ -46,9 +46,7 @@
     </script>
         <form name="frmXoa" method="post" action="" class="page-header">
         <h1>Danh sách thành viên</h1>
-        <p>
-          <a href="?trang=thanhvien&link=create"><span class="glyphicon glyphicon-plus"></span> Thêm mới</a>
-        </p>
+        
         <table class="table table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>

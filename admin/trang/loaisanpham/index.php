@@ -44,7 +44,7 @@
     
     </script>
         <form name="frmXoa" method="post" action="">
-        <h1>Danh sách loại hoa</h1>
+        <h1>Danh sách loại sản phẩm</h1>
         <p>
         <a href="?trang=loaisanpham&link=create"><span class="glyphicon glyphicon-plus"></span> Thêm mới</a>
         </p>
